@@ -193,8 +193,6 @@ from ccxt.zonda import zonda                                          # noqa: F4
 
 exchanges = [
 	'binance',
-    'binancecoinm',
-    'binanceus',
     'binanceusdm',
 	'kraken',
     'krakenfutures',
