@@ -4131,6 +4131,7 @@ class Exchange(object):
 
     def parse_ohlcv(self, ohlcv, market: Market = None) -> list:
         if isinstance(ohlcv, list):
+			print(f'len(ohlcv):{len(ohlcv)}')
             return [
                 self.safe_integer(ohlcv, 0),  # timestamp
                 self.safe_number(ohlcv, 1),  # open
@@ -4140,6 +4141,7 @@ class Exchange(object):
                 self.safe_number(ohlcv, 5),  # volume
                 self.safe_number(ohlcv, 6),  # buy_volume
             ]
+		print(f'type(ohlcv):{type(ohlcv)}, ohlcv:{ohlcv}')
         return ohlcv
 
     def network_code_to_id(self, networkCode: str, currencyCode: Str = None):
