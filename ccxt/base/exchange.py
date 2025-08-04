@@ -4138,6 +4138,7 @@ class Exchange(object):
                 self.safe_number(ohlcv, 3),  # low
                 self.safe_number(ohlcv, 4),  # close
                 self.safe_number(ohlcv, 5),  # volume
+                self.safe_number(ohlcv, 6),  # buy_volume
             ]
         return ohlcv
 

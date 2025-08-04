@@ -4593,6 +4593,7 @@ class binance(Exchange, ImplicitAPI):
         #         }
         #     ]
         #
+		# TODO: 1这里返回的candles要多加一列buy_volume
         candles = self.parse_ohlcvs(response, market, timeframe, since, limit)
         return candles
 
