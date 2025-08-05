@@ -4474,6 +4474,7 @@ class binance(Exchange, ImplicitAPI):
             self.safe_number_2(ohlcv, 3, 'low'),
             self.safe_number_2(ohlcv, 4, 'close'),
             self.safe_number_2(ohlcv, volumeIndex, 'volume'),
+            self.safe_number_2(ohlcv, 9, 'buy_volume'),
         ]
 
     async def fetch_ohlcv(self, symbol: str, timeframe='1m', since: Int = None, limit: Int = None, params={}) -> List[list]:
@@ -4562,10 +4563,13 @@ class binance(Exchange, ImplicitAPI):
             else:
                 response = await self.fapiPublicGetPremiumIndexKlines(self.extend(request, params))
         elif market['linear']:
+            print('linear')
             response = await self.fapiPublicGetKlines(self.extend(request, params))
         elif market['inverse']:
+            print('inverse')
             response = await self.dapiPublicGetKlines(self.extend(request, params))
         else:
+            print('spot')
             response = await self.publicGetKlines(self.extend(request, params))
         #
         #     [
