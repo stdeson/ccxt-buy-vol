@@ -4563,13 +4563,10 @@ class binance(Exchange, ImplicitAPI):
             else:
                 response = await self.fapiPublicGetPremiumIndexKlines(self.extend(request, params))
         elif market['linear']:
-            print('linear')
             response = await self.fapiPublicGetKlines(self.extend(request, params))
         elif market['inverse']:
-            print('inverse')
             response = await self.dapiPublicGetKlines(self.extend(request, params))
         else:
-            print('spot')
             response = await self.publicGetKlines(self.extend(request, params))
         #
         #     [
